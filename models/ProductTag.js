@@ -31,7 +31,7 @@ ProductTag.init(
     //key(column) -> tag_id
     tag_id: {
       //integer
-      type: DataTypes.Types.INTEGER,
+      type: DataTypes.INTEGER,
       //references the Tag model's id
       references: {
         model: "Tag",  //Tag table
