@@ -6,7 +6,23 @@ class Tag extends Model {}
 
 Tag.init(
   {
-    // define columns
+    //key(column) -> id
+    id: {
+      //integer
+      type: DataTypes.INTEGER,
+      //doesnt allow null values
+      allowNull: false,
+      //set as primary key
+      primaryKey: true,
+      //uses auto increment
+      autoIncrement: true,
+    },
+
+    //key(column) -> tag_name
+    tag_name: {
+      //string
+      type: DataTypes.STRING
+    }
   },
   {
     sequelize,
@@ -17,4 +33,5 @@ Tag.init(
   }
 );
 
+//export model (table)
 module.exports = Tag;
