@@ -17,8 +17,6 @@ router.get('/', async (req, res) => {
 });
 
 
-
-
 router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
@@ -38,8 +36,6 @@ router.get('/:id', async (req, res) => {
 });
 
 
-
-
 router.post('/', async (req, res) => {
   // create a new category
   try {
@@ -51,14 +47,26 @@ router.post('/', async (req, res) => {
 });
 
 
-
-
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
-  //STILL NEED TO DO!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  Category.update({
+    category_name: req.body.category_name,
+  }, 
+  {
+    where: {
+      id: req.params.id,
+    },
+  }).then(updateCategory => {
+    if(!updateCategory) {
+      res.status(404).json({ message: 'Oops! No category found with this id' });
+      return;
+    }
+    res.json(updateCategory);
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 });
-
-
 
 
 

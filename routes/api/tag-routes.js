@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
  
 });
 
+
 router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
   // include its associated Product data
@@ -36,9 +37,6 @@ router.get('/:id', async (req, res) => {
 });
 
 
-
-
-
 router.post('/', async (req, res) => {
   // create a new tag
   try {
@@ -50,14 +48,26 @@ router.post('/', async (req, res) => {
 });
 
 
-
-
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
-  //STILL NEED TO DO!!!!!!!!!!!!!!!!!!!!!!!!!
+  Tag.update({
+    tag_name: req.body.tag_name,
+  }, 
+  {
+    where: {
+      id: req.params.id,
+    },
+  }).then(updateTag => {
+    if(!updateTag) {
+      res.status(404).json({ message: 'Oops! No tag found with this id' });
+      return;
+    }
+    res.json(updateTag);
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
 });
-
-
 
 
 router.delete('/:id', async (req, res) => {

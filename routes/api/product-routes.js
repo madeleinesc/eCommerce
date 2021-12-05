@@ -18,8 +18,6 @@ router.get('/', async (req, res) => {
 });
 
 
-
-
 // get one product
 router.get('/:id', async (req, res) => {
   // find a single product by its `id`
@@ -40,8 +38,6 @@ router.get('/:id', async (req, res) => {
 });
 
 
-
-
 // create new product
 router.post('/', async (req, res) => {
   /* req.body should look like this...
@@ -58,7 +54,6 @@ router.post('/', async (req, res) => {
     stock: req.body.stock,
     tagIds: req.body.tagIds
   })
-
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
@@ -79,8 +74,6 @@ router.post('/', async (req, res) => {
       res.status(400).json(err);
     });
 });
-
-
 
 
 // update product
@@ -124,8 +117,6 @@ router.put('/:id', async (req, res) => {
       res.status(400).json(err);
     });
 });
-
-
 
 
 router.delete('/:id', async (req, res) => {
