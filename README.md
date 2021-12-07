@@ -66,7 +66,7 @@ This application uses the following packages:
 
  * [Sequelize](https://www.npmjs.com/package/sequelize).
 
-As well as 
+As well as [Insomnia](https://insomnia.rest/)
 
 
 # Questions
