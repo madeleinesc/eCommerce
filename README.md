@@ -47,7 +47,15 @@ THEN I am able to successfully create, update, and delete data in my database
 
 
 # Usage
+To work this ecommerce backend, firstly, log into mysql and enter source schema.sql within the terminal. This is to make sure the database has been created. 
 
+After quitting mysql, enter 'npm run seed' in a new terminal to seed the database with data.
+
+Then, to activate the server, enter 'node server.js' in the terminal.
+
+After making the localhost is listening on the specified port, head over to Insomnia to test the http requests like below.
+
+![gif of insomnia requests](./assets/images/insomnia.gif)
 
 
 # Packages
